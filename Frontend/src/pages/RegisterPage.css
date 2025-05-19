@@ -1,0 +1,43 @@
+.register-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('/src/assets/Fondo.webp') no-repeat center/cover;
+    padding: 1rem;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    background-color: rgba(211, 211, 211, 0.6);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 800px;
+}
+
+.register-image {
+    width: 100%;
+    min-height: 100%;
+    max-width: 400px;
+    display: block;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .register-page {
+        min-height: calc(100dvh - 32px);
+        overflow: hidden;
+    }
+
+    .register-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .register-image {
+        display: none;
+    }
+}
