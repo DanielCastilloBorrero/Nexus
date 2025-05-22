@@ -25,7 +25,7 @@ class Proveedor(Base):
     email = Column(String(150))
     direccion = Column(String(255))
 
-    productos = relationship("Productos", back_populates="proveedor")
+    productos = relationship("Producto", back_populates="proveedor")
 
 class Categoria(Base):
     __tablename__ = "Categorias"
@@ -34,7 +34,7 @@ class Categoria(Base):
     nombre = Column(String(100), nullable=False, index=True)  # útil para filtros
     descripcion = Column(Text)
 
-    productos = relationship("Productos", back_populates="categoria")
+    productos = relationship("Producto", back_populates="categoria")
 
 class Producto(Base):
     __tablename__ = "Productos"
