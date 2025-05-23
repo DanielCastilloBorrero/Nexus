@@ -3,12 +3,14 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.models import Usuario as UsuarioModel
 from schemas.Usuario import UsuarioCreate, UsuarioRead
+from auth.hashing import hash_password
 
 router = APIRouter(prefix="/usuarios", tags=["Usuarios"])
 
-@router.post("/")
+@router.post("/register")
 def crear_usuario(usuario: UsuarioCreate, db: Session = Depends(get_db)) -> UsuarioRead:
-    db_usuario = UsuarioModel(**usuario.dict())
+    hashed_pwd = hash_password(usuario.password)
+    db_usuario = UsuarioModel(**usuario.dict(exclude={"password"}), password=hashed_pwd)
     try:
         db.add(db_usuario)
         db.commit()
@@ -30,7 +32,7 @@ def obtener_usuario(usuario_id: int, db: Session = Depends(get_db)) -> UsuarioRe
         raise HTTPException(status_code=404, detail="Usuario no encontrado")
     return usuario
 
-@router.put("/{usuario_id}")
+@router.put("/update/{usuario_id}")
 def actualizar_usuario(usuario_id: int, usuario: UsuarioCreate, db: Session = Depends(get_db)) -> UsuarioRead:
     db_usuario = db.query(UsuarioModel).filter(UsuarioModel.id_Usuario == usuario_id).first()
     if not db_usuario:
@@ -41,7 +43,7 @@ def actualizar_usuario(usuario_id: int, usuario: UsuarioCreate, db: Session = De
     db.refresh(db_usuario)
     return db_usuario
 
-@router.delete("/{usuario_id}")
+@router.delete("/delete/{usuario_id}")
 def eliminar_usuario(usuario_id: int, db: Session = Depends(get_db)) -> dict:
     db_usuario = db.query(UsuarioModel).filter(UsuarioModel.id_Usuario == usuario_id).first()
     if not db_usuario:

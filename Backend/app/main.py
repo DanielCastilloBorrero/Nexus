@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from models import models
 from database import engine
-from routers import usuarios
+from routers import usuarios, auth_routes
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
@@ -29,13 +29,11 @@ app = FastAPI(
 )
 
 # Declarar los orígenes permitidos para CORS
-origenes = [
-    "http://localhost:5173/",
-]
+oirigins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origenes,
+    allow_origins=oirigins,  # Cambia esto a los orígenes permitidos
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -46,6 +44,7 @@ models.Base.metadata.create_all(bind=engine)
 
 # Incluir las rutas de los routers
 app.include_router(usuarios.router)
+app.include_router(auth_routes.router)
 
 @app.get("/")
 def root() -> dict:
