@@ -5,10 +5,6 @@ function LoginPage() {
     return (
         <div className="login-page">
             <div className="login-container">
-                <img
-                    src="/src/assets/inventario.webp"
-                    alt="Login Illustration"
-                    className="login-image" />
                 <LoginCard />
             </div>
         </div>

@@ -3,6 +3,10 @@ import { useState } from "react"
 import authService from "../services/authService"
 import { ToastContainer, toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
+import TextField from "@mui/material/TextField"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import Checkbox from "@mui/material/Checkbox"
+import Button from "@mui/material/Button"
 import "./LoginCard.css"
 
 function LoginCard() {
@@ -14,9 +18,11 @@ function LoginCard() {
         password: ""
     })
 
+    const [showPassword, setShowPassword] = useState(false)
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        // Aquí puedes agregar la lógica para enviar los datos de inicio de sesión al servidor
+
         // Usando axios para hacer una solicitud POST
         authService.login(user)
             .then((response) => {
@@ -62,21 +68,28 @@ function LoginCard() {
                 <h2 className="login-title">Iniciar Sesión</h2>
             </div>
             <form className="login-form" onSubmit={handleSubmit}>
-                <input
+                <TextField
                     type="email"
+                    id="outlined-basic"
+                    label="Email"
                     required
-                    placeholder="Email"
                     onChange={(e) => setUser({ ...user, email: e.target.value })}
-                    value={user.email}
-                    className="login-input" />
-                <input
-                    type="password"
+                    value={user.email} />
+                <TextField
+                    id="outlined-password-input"
+                    label="Contraseña"
+                    type={showPassword ? "text" : "password"}
                     required
-                    placeholder="Contraseña"
                     onChange={(e) => setUser({ ...user, password: e.target.value })}
                     value={user.password}
-                    className="login-input" />
-                <button type="submit" className="login-button">Ingresar</button>
+                />
+                <FormControlLabel
+                    value="end"
+                    control={<Checkbox />}
+                    label={showPassword ? "Ocultar Contraseña" : "Mostrar Contraseña"}
+                    labelPlacement="end"
+                    onChange={() => setShowPassword(!showPassword)} />
+                <Button variant="contained" type="submit" className="login-button">Ingresar</Button>
             </form>
             <div className="login-footer">
                 <a href="#" className="login-link">¿Olvidaste tu contraseña?</a>

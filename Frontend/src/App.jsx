@@ -3,7 +3,6 @@ import Home from "./pages/Home"
 import LoginPage from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
 import Dashboard from "./pages/Dashboard"
-import "./App.css"
 
 function App() {
 
