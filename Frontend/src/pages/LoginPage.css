@@ -4,13 +4,14 @@
     justify-content: center;
     min-height: 100vh;
     padding: 1rem;
+    background-color: #89909f;
 }
 
 .login-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: rgba(211, 211, 211, 0.6);
+    background-color: rgba(255, 255, 255);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;

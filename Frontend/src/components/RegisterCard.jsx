@@ -2,6 +2,8 @@ import { useState } from "react"
 import authService from "../services/authService"
 import { ToastContainer, toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
+import TextField from "@mui/material/TextField"
+import Button from "@mui/material/Button"
 import "./RegisterCard.css"
 
 function RegisterCard() {
@@ -61,50 +63,61 @@ function RegisterCard() {
                 <h2 className="register-title">Registrarse</h2>
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
-                <input
+                <TextField
+                    label="Nombres"
+                    variant="outlined"
+                    required
                     type="text"
                     value={user.nombre}
-                    placeholder="Nombres"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, nombre: e.target.value })} />
-                <input
+                <TextField
+                    label="Apellidos"
+                    variant="outlined"
+                    required
                     type="text"
                     value={user.apellidos}
-                    placeholder="Apellidos"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, apellidos: e.target.value })} />
-                <input
+                <TextField
+                    variant="outlined"
+                    required
                     type="date"
                     value={user.fecha_nacimiento}
-                    placeholder="dd/mm/yyyy"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, fecha_nacimiento: e.target.value })} />
-                <input
+                <TextField
+                    label="Telefono"
+                    variant="outlined"
+                    required
                     type="tel"
                     value={user.telefono}
-                    placeholder="Telefono"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, telefono: e.target.value })} />
-                <input
+                <TextField
+                    label="Email"
+                    variant="outlined"
+                    required
                     type="email"
                     value={user.email}
-                    placeholder="Email"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, email: e.target.value })} />
-                <input
+                <TextField
+                    label="Contraseña"
+                    variant="outlined"
+                    required
                     type="password"
                     value={user.password}
-                    placeholder="Contraseña"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, password: e.target.value })} />
-                <input
+                <TextField
+                    label="Repita su contraseña"
+                    variant="outlined"
+                    required
                     type="password"
                     value={user.password2}
-                    placeholder="Repita su contraseña"
-                    className="register-input"
                     onChange={(e) => setUser({ ...user, password2: e.target.value })}
                 />
-                <button type="submit" className="register-button">Registro</button>
+                <div className="register-buttons">
+                    <Button variant="contained" color="secondary" onClick={() => navigate("/login")}>
+                        Volver
+                    </Button>
+                    <Button type="submit" variant="contained">Registro</Button>
+                </div>
             </form>
         </div>
     )

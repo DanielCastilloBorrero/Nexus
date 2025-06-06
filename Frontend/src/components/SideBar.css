@@ -1,19 +1,27 @@
 .sidebar {
-    background-color: #2e2e3e;
+    background-color: #0b121b;
     color: white;
     width: 200px;
+    min-height: 100%;
     transition: width 0.3s ease;
     overflow: hidden;
-}
-
-.sidebar .closed {
-    width: 60px;
 }
 
 .sidebar nav ul li {
     padding: 1rem;
     border-bottom: 1px solid #444;
     cursor: pointer;
+}
+
+.sidebar-closed {
+    width: 60px;
+    background-color: #0b121b;
+    min-height: 100%;
+    transition: width 0.3s ease;
+
+    nav {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {

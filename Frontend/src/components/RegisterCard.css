@@ -3,9 +3,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 50%;
+    max-width: 100%;
     flex-grow: 1;
-    min-width: 300px;
+    min-width: 400px;
 }
 
 .register-header {
@@ -25,27 +25,16 @@
     gap: 1rem;
 }
 
-.register-input {
-    padding: 0.75rem;
-    border: 1px solid rgba(211, 211, 211);
-    border-radius: 5px;
-    background-color: rgba(200, 200, 200, 0.85);
+.register-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.register-button {
-    padding: 0.75rem;
-    margin-top: 1rem;
-    background-color: #4169E1;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
-}
-
-.register-button:hover {
-    background-color: #0000FF;
+.register-buttons Button {
+    width: 100%;
+    max-width: 200px;
 }
 
 @media (max-width: 768px) {

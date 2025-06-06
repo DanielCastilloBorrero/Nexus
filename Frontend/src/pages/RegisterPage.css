@@ -3,27 +3,20 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: url('/src/assets/Fondo.webp') no-repeat center/cover;
     padding: 1rem;
+    background-color: #89909f;
 }
 
 .register-container {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    background-color: rgba(211, 211, 211, 0.6);
+    background-color: rgba(255, 255, 255);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     max-width: 800px;
-}
-
-.register-image {
-    width: 100%;
-    min-height: 100%;
-    max-width: 400px;
-    display: block;
-    object-fit: cover;
+    max-height: 100dvh;
 }
 
 @media (max-width: 768px) {
@@ -35,9 +28,5 @@
     .register-container {
         max-width: 100%;
         padding: 1rem;
-    }
-
-    .register-image {
-        display: none;
     }
 }
