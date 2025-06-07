@@ -60,7 +60,7 @@ function RegisterCard() {
         <div className="register-card">
             <ToastContainer />
             <div className="register-header">
-                <h2 className="register-title">Registrarse</h2>
+                <h2 className="register-title">Registrate</h2>
             </div>
             <form className="register-form" onSubmit={handleSubmit}>
                 <TextField
@@ -68,6 +68,7 @@ function RegisterCard() {
                     variant="outlined"
                     required
                     type="text"
+                    size="small"
                     value={user.nombre}
                     onChange={(e) => setUser({ ...user, nombre: e.target.value })} />
                 <TextField
@@ -75,12 +76,14 @@ function RegisterCard() {
                     variant="outlined"
                     required
                     type="text"
+                    size="small"
                     value={user.apellidos}
                     onChange={(e) => setUser({ ...user, apellidos: e.target.value })} />
                 <TextField
                     variant="outlined"
                     required
                     type="date"
+                    size="small"
                     value={user.fecha_nacimiento}
                     onChange={(e) => setUser({ ...user, fecha_nacimiento: e.target.value })} />
                 <TextField
@@ -88,6 +91,7 @@ function RegisterCard() {
                     variant="outlined"
                     required
                     type="tel"
+                    size="small"
                     value={user.telefono}
                     onChange={(e) => setUser({ ...user, telefono: e.target.value })} />
                 <TextField
@@ -95,6 +99,7 @@ function RegisterCard() {
                     variant="outlined"
                     required
                     type="email"
+                    size="small"
                     value={user.email}
                     onChange={(e) => setUser({ ...user, email: e.target.value })} />
                 <TextField
@@ -102,6 +107,7 @@ function RegisterCard() {
                     variant="outlined"
                     required
                     type="password"
+                    size="small"
                     value={user.password}
                     onChange={(e) => setUser({ ...user, password: e.target.value })} />
                 <TextField
@@ -109,14 +115,15 @@ function RegisterCard() {
                     variant="outlined"
                     required
                     type="password"
+                    size="small"
                     value={user.password2}
                     onChange={(e) => setUser({ ...user, password2: e.target.value })}
                 />
                 <div className="register-buttons">
-                    <Button variant="contained" color="secondary" onClick={() => navigate("/login")}>
+                    <Button variant="outlined" onClick={() => navigate("/login")}>
                         Volver
                     </Button>
-                    <Button type="submit" variant="contained">Registro</Button>
+                    <Button type="submit" variant="contained">Registrarse</Button>
                 </div>
             </form>
         </div>

@@ -21,7 +21,7 @@
 
 @media (max-width: 768px) {
     .register-page {
-        min-height: calc(100dvh - 32px);
+        min-height: 100dvh;
         overflow: hidden;
     }
 

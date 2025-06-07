@@ -15,12 +15,10 @@ function Dashboard() {
             <SideBar isOpen={isOpen} />
             <div className='main-content'>
                 <header className='top-bar'>
-                    <button onClick={toggleSidebar} className='toggle-button'>
-                        ☰
-                    </button>
-                    <h1>Dashboard</h1>
+                    <button onClick={toggleSidebar} className='toggle-button'>☰</button>
                 </header>
                 <section className="content">
+                    <h1>Dashboard</h1>
                     <p>Aquí va el contenido del dashboard.</p>
                 </section>
             </div>
